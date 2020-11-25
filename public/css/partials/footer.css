@@ -1,0 +1,13 @@
+.footer {
+    padding: 2rem;
+    background-color: #c0c0c0;
+    box-shadow: 0px -1px 10px black;
+}
+
+.footer-meta-list {
+    text-align: center;
+}
+
+.footer-meta {
+    display: inline;
+}

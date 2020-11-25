@@ -1,0 +1,29 @@
+<%- include('./partials/header_partial.ejs') %>
+
+<link rel="stylesheet" href="/css/show.css">
+<div class="main-content">
+
+    <a class="back-btn" href="/home">
+        <img src="https://img.icons8.com/ios/50/000000/circled-left-2.png"/>
+    </a>
+
+    <div class="post-container">
+        <span class="menu-icon">
+            <a href=<%=`/post${post._id}/edit`%>>
+                <img src="https://img.icons8.com/ios/24/000000/edit--v1.png"/>
+            </a>
+
+            <form action=<%=`/post${post._id}?_method=DELETE`%> method="POST" >
+                <button id="delete-btn" type="submit">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/delete.png"/>
+                </button>
+            </form> 
+        </span>
+        <%- include('./partials/post_partial.ejs', { el: post }) %> 
+    </div>
+    <div class="comment-container">
+        <%- include('./partials/comment_partial.ejs', { post: post }) %> 
+    </div>    
+</div>
+
+<%- include('./partials/footer_partial.ejs') %>

@@ -1,0 +1,45 @@
+<%- include('./partials/header_partial.ejs') %>
+<link rel="stylesheet" href="/css/edit.css">
+<div class="main-content">
+
+    <a href=<%=`/post${post._id}`%> class="back-btn">
+        <img src="https://img.icons8.com/ios/50/000000/circled-left-2.png"/>
+    </a>
+
+
+    <div class="comment-container">
+        <div class="post-container">
+            <form action=<%=`/post${post._id}?_method=PATCH`%> method="POST">
+                <h1>Edit a post</h1>
+                <hr>
+                <label for="title">Title</label>
+                <input name="title" id="title" type="text" class="post-title" value="<%= post.title %>"> 
+
+                <label for="subtitle">Sub Title</label>
+                <input name="subtitle" id="sub_title" class="post-subtitle" value="<%= post.subtitle %>">
+
+                <label for="content">Content</label>
+                <textarea name="content" rows="20" cols="50" id="edit-content"><%= post.content %></textarea>
+
+                <ul id="tag-list">
+                    <li class="">
+                        <label for="tags">Tags</label>
+                        <textarea name="tags" id="tags" cols="50" rows="20">
+                        <% post.tags.forEach(tag => { %>
+                            #<%= tag %>
+                        <% }) %>
+                        </textarea>
+                    </li>
+                </ul>
+                <button type="submit">
+                    <img src="https://img.icons8.com/ios/24/000000/paper-plane.png"/>
+                </button>
+                <a href="">
+                    <img src="https://img.icons8.com/material-rounded/24/000000/delete.png"/>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer_partial.ejs') %>

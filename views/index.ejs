@@ -1,0 +1,49 @@
+<%- include('./partials/header_partial.ejs') %>
+
+<!--Stylesheet specific to this view-->
+<link rel="stylesheet" href="/css/index.css">
+    <div class="main-content-container">
+
+        <div class="form-container">
+            <form class="update-form" action="/slotJP" method="POST">
+                <label for="in-house">In House</label>
+                <input id="in-house" name="in-house" type="text" placeholder="$">
+
+                <label for="so-hot">So Hot</label>
+                <input id="so-hot"name="so-hot" type="text" placeholder="$">
+
+                <label for="golden-wins">Golden Wins</label>
+                <input id="golden-wins"name="golden-wins" type="text" placeholder="$">
+
+                <label for="fire-wolf">Fire Wolf</label>
+                <input id="fire-wolf"name="fire-wolf" type="text" placeholder="$">
+
+                <label for="buffalo-extreme">Buffalo Extreme</label>
+                <input id="buffalo-extreme"name="buffalo-extreme" type="text" placeholder="$">
+
+                <button id="submit-btn" type="submit">Update JPs</button>
+            </form>
+        </div>
+
+
+        <div class="post-container">
+            <img class="menu-icon" src="https://img.icons8.com/material-outlined/24/000000/menu-2.png"/>
+            <h1 class="post-title">General Announcements            
+                <a href="/home/new">
+                    <img src="https://img.icons8.com/ios/30/000000/add-property.png"/>
+                </a>
+            </h1>
+
+            
+            <hr>
+
+            <% posts.forEach(el => { %>
+                <a href=<%=`/post${el.id}`%>>
+                    <%- include('./partials/post_partial.ejs', { el: el }) %> 
+                </a>
+            <%})%>
+        </div>
+    </div>
+
+<script src="./js/index.js"></script>
+<%- include('./partials/footer_partial.ejs') %>

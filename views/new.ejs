@@ -1,0 +1,59 @@
+<%- include('./partials/header_partial.ejs') %>
+    
+<div class="main-content">
+    <a href="/home" class="back-btn">
+        <img src="https://img.icons8.com/ios/50/000000/circled-left-2.png"/>
+    </a>
+    <div class="comment-container">
+        <div class="comment">   
+            <form action="/home" method="POST">
+                <h1>Create a post</h1>
+                <hr>
+
+                <label for="title">Title</label>
+                <input name="title" id="title" type="text" class="comment-title"> 
+
+                <label for="subtitle">Sub Title</label>
+                <input name="subtitle" id="subtitle" class="comment-sub-title">
+
+                <label for="content">Content</label>
+                <textarea name="content" rows="20" cols="50" id="content"></textarea>
+
+                <ul class="comment-meta-container">
+                    <li class="comment-meta">
+                        <div class="tag-container"> 
+                            <h2>tags</h2>
+                            <label for="a">Bob</label>
+                            <input type="checkbox" name="bob" id="a">
+
+                            <label for="b">Jones</label>
+                            <input type="checkbox" name="jones" id="b"> 
+
+                            <label for="c">Jerry</label>
+                            <input type="checkbox" name="jerry" id="c">  
+                            
+                            <label for="d">Slots</label>
+                            <input type="checkbox" name="slots" id="d"> 
+
+                            <label for="e">Bingo</label>
+                            <input type="checkbox" name="bingo" id="e"> 
+
+                            <label for="f">General</label>
+                            <input type="checkbox" name="general" id="f"> 
+
+                            <label for="g">Funny</label>
+                            <input type="checkbox" name="funny" id="g"> 
+                        </div>
+                    </li>
+                </ul>
+
+                <button type="submit">
+                    <img src="https://img.icons8.com/ios/24/000000/paper-plane.png"/>
+                </button>
+            </form>
+          
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer_partial.ejs') %>

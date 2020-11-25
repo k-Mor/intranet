@@ -1,0 +1,51 @@
+<div class="post">
+    <h3 class="post-title"> <%= el.title %></h3>
+    <h4 class="post-subtitle"><%= el.subtitle %></h4>
+    <p class="post-content">
+        <%= el.content %>
+    </p>
+
+
+
+    <div>
+        <ul class="post-container-meta">
+            <li>
+                <span>
+                    <% el.meta.forEach(thumb => { %>
+                        <%= thumb.thumbsup %> 
+                    <%});%> 
+                    <img class="thumbsup" src="https://img.icons8.com/cotton/25/000000/facebook-like--v2.png">
+                </span>
+            </li>
+            <li class="post-meta">
+                <%= el.author %>
+                <img src="https://img.icons8.com/cotton/40/000000/gender-neutral-user--v1.png"/>
+            </li>
+            
+            <li class="post-meta"><strong>Published:</strong> <%=`
+                ${el.publish_date.getMonth() + 1}
+                -${el.publish_date.getDate()}
+                -${el.publish_date.getFullYear()} @ 
+                ${el.publish_date.getHours()}:
+                ${el.publish_date.getMinutes()}:
+                ${el.publish_date.getSeconds()}` %>
+            </li>
+
+            <li class="post-meta"><strong>Updated:</strong> <%=`
+                ${el.date_updated.getMonth() + 1}-
+                ${el.date_updated.getDate()}-
+                ${el.date_updated.getFullYear()} @ 
+                ${el.date_updated.getHours()}:
+                ${el.date_updated.getMinutes()}:
+                ${el.date_updated.getSeconds()}`%> 
+            </li>
+
+            <li class="post-meta">
+                <% el.tags.forEach(tag => { %>
+                    <span> #<%= tag %> </span>
+                <% }) %>
+            </li>
+
+        </ul>
+    </div>
+</div>
