@@ -20,12 +20,9 @@
  * to any site that sends in a GET request. The purpose is to have it 
  */
 
-class AppError extends Error {
-  constructor(message, status) {
-    super(),
-		this.message =  message,
-		this.status = status
-  };
-};
 
-module.exports = AppError;
+module.exports = function(fn) {
+  return function(req, res, next) {
+    fn(req, res, next).catch(e => next(e));
+  }
+};
