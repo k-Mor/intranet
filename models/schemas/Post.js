@@ -42,7 +42,6 @@ const postSchema = new Schema ({
         type: String,
         required: false,
         maxlength: 100,
-        minlength: 10,
         lowercase: true
     },
 
