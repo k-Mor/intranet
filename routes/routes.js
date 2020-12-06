@@ -32,6 +32,10 @@ const routes = require('express').Router(),
 
   postSchema = require('../models/schemas/Post'),
 
+  userSchema = require('../models/schemas/User'),
+
+  commentSchema = require('../models/schemas/Comment'),  
+
   asyncWrapper = require('../utils/errors/asyncWrapper'),
 
   AppError = require('../utils/errors/AppError');
@@ -56,6 +60,7 @@ routes.get('/post:id', asyncWrapper(async (req, res) => {
   const selectedPost = await postSchema.Post.findById(id);
 
   if (selectedPost === null) throw new AppError('Post not found..', 300);
+
   res.render('show', { post: selectedPost });
 
 }));
@@ -142,6 +147,34 @@ routes.get('/', (req, res) => {
 
   res.render('login');
 });
+
+// Root route that directs to the login page
+routes.get('/new', (req, res) => {
+
+  res.render('signUp');
+});
+
+routes.post('/', async (req, res) => {
+  const { username, password, email } = req.body;
+
+  const newUser = await userSchema.User.create({
+    username: username,
+    password: password,
+    email: email
+  });
+
+  res.redirect('/home');
+
+});
+
+
+
+
+
+
+
+
+
 
 // The GET route for the slot room 
 routes.get('/slots', (req, res) => {

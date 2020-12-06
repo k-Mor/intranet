@@ -52,6 +52,7 @@ const postSchema = new Schema ({
         lowercase: true
     },
 
+    // Needs to be a reference to the object ID of a comment
     comments: {
         type: [
             { 
