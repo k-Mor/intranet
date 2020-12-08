@@ -29,8 +29,9 @@
   * 
   */
  const commentSchema = new Schema({
-   author: {
+   user: {
      type: Schema.Types.ObjectId,
+     ref: 'User',
      required: true,
    },
    content: {
