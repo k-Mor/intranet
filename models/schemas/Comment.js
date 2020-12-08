@@ -34,16 +34,19 @@
      ref: 'User',
      required: true,
    },
+
    content: {
      type: String,
      required: true,
      minlength: 1,
    },
+
    dateCreated: {
      type: Date,
      default: new Date(),
      required: true,
    },
+   
    dateUpdated: {
      type: Date,
      default: new Date(),

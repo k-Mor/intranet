@@ -49,11 +49,13 @@
      required: true,
      lowercase: true
    },
+
    joined: {
      type: Date,
      default: new Date(),
      required: true
    },
+   
    posts: {
      type: Schema.Types.ObjectId,
      ref: 'Post',
