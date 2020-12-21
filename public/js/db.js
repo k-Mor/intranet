@@ -16,8 +16,8 @@
  * 
  * @author Kaleb Moreno
  * @version 11/21/2020
- * @description - This file holds all of the backend code for a simple API that sends JSON data 
- * to any site that sends in a GET request. The purpose is to have it 
+ * @description - This file holds all of the database related code such as the connection string,
+ * as well as methods that pertain only to the Mongo DB.
  */
 
 
@@ -33,7 +33,7 @@ password = '0aSaFnrAKHYW098L',
 // Mongo initial DB 
 dbName = 'test',
 
-// Mongo URI to connect to 
+// Cloud based Mongo URI to connect to 
 uri = `mongodb+srv://${usr}:${password}@bjs-cluster.ttfat.mongodb.net/${dbName}?retryWrites=true&w=majority`,
 
 // The connection options for Mongo
@@ -47,7 +47,10 @@ postSchema = require('../../models/schemas/Post');
 
 
 /**
- * 
+ * The purpose of this function is to connect to the DB and relay back to the 
+ * console wether or not that connection was successful.
+ *
+ * @TODO better err handling
  */
 const connectToTheDB = async () => {
     try {
@@ -61,8 +64,10 @@ const connectToTheDB = async () => {
 };
 
 /**
- * 
- * @param {*} data 
+ * The purpose of this method is to eventually serve as the primary insertion point
+ * for the application.
+ *
+ * @TODO better err handling
  */
 const insertIntoDB = async (dataModel) => {
     try {
@@ -76,8 +81,10 @@ const insertIntoDB = async (dataModel) => {
 }
 
 /**
- * 
- * @param {*} data 
+ * The purpose of this function is to eventually serve as 
+ * a primary getter for ID related searches
+ *
+ * @TODO better err handling
  */
 const getByID = async (data) => {
     try {
@@ -90,8 +97,10 @@ const getByID = async (data) => {
 }
 
 /**
- * 
- * @param {*} data 
+ * The eventual purpose of this method is to serve as the 
+ * primary getter for tag related searches 
+ *
+ * @TODO better err handling
  */
 const getByTag = async (data) => {
     try {
@@ -106,8 +115,9 @@ const getByTag = async (data) => {
 }
 
 /**
- * 
- * @param {*} data 
+ * The purpose of this function is to get all of the posts from the Posts collection.
+ *  
+ * @TODO better err handling
  */
 const getAllPosts = async (data) => {
     try {
