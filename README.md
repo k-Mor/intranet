@@ -1,5 +1,5 @@
 <h1>A Full-Stack Web Application for BJs Bingo & Gaming!</h1>
-<p> With v1 of this application, users will be able to:</p>
+<p> Once complete, users will be able to:</p>
 
 <ul>
   <li>Create new ticktes and submit them to vendors</li>
