@@ -16,8 +16,7 @@
  * 
  * @author Kaleb Moreno
  * @version 11/24/2020
- * @description - This file holds all of the backend code for a simple API that sends JSON data 
- * to any site that sends in a GET request. The purpose is to have it 
+ * @description - This file holds all of the code for the custom AppError class which inherits from Error.
  */
 
 class AppError extends Error {
@@ -28,4 +27,5 @@ class AppError extends Error {
   };
 };
 
+// Exports
 module.exports = AppError;
