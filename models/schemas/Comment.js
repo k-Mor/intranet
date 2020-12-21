@@ -16,8 +16,8 @@
  * 
  * @author Kaleb Moreno
  * @version 11/22/2020
- * @description - This file holds all of the backend code for a simple API that sends JSON data 
- * to any site that sends in a GET request. The purpose is to have it 
+ * @description - The purpose of this file is to hold the Mongoose Schema which represents
+ * a comment in the database and application respectively.
  */
 
 
@@ -25,12 +25,10 @@
  const { Schema } = require('mongoose'),
  mongoose = require('mongoose');
 
- /**
-  * 
-  */
+ // Creating a new Mongoose schema
  const commentSchema = new Schema({
    user: {
-     type: Schema.Types.ObjectId,
+     type: Schema.Types.ObjectId, // Reference to the user Object ID
      ref: 'User',
      required: true,
    },
@@ -54,6 +52,7 @@
    }
  });
 
- const Comment = mongoose.model('Comment', commentSchema);
+ const Comment = mongoose.model('Comment', commentSchema); // Creating the model by passing the schema
 
+ // Exports
  module.exports.Comment = Comment;
