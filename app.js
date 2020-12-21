@@ -16,8 +16,8 @@
  * 
  * @author Kaleb Moreno
  * @version 11/15/2020
- * @description - This file holds all of the backend code for a simple API that sends JSON data 
- * to any site that sends in a GET request. The purpose is to have it 
+ * @description - This file serves as the entry point for the application where everything is configured and 
+ * the necessary dependencies are brought in.
  */
 
 
@@ -75,7 +75,7 @@ const init = () => {
     //Serving the public directory for static files
     app.use(express.static('public'));
 
-    // So we can send PATCH and other HTTP requests that HTML doesn't support
+    // So I can send PATCH and other HTTP requests that HTML doesn't support
     app.use(methodOverride('_method'));
 
     // Setting the routes for the application
