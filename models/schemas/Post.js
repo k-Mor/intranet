@@ -16,8 +16,7 @@
  * 
  * @author Kaleb Moreno
  * @version 11/22/2020
- * @description - This file holds all of the backend code for a simple API that sends JSON data 
- * to any site that sends in a GET request. The purpose is to have it 
+ * @description - This file holds all of the code for the post Mongoose schema.
  */
 
 
@@ -25,9 +24,7 @@
 const { Schema } = require('mongoose'),
     mongoose = require('mongoose');
 
-/**
- * Mongoose Schema for the post objects 
- */
+// Mongoose Schema for the post objects 
 const postSchema = new Schema ({
     
     title: {
@@ -52,7 +49,7 @@ const postSchema = new Schema ({
         lowercase: true
     },
 
-    // Needs to be a reference to the object ID of a comment
+    // @TODO Needs to be a reference to the object ID of a comment
     comments: {
         type: [
             { 
@@ -90,7 +87,7 @@ const postSchema = new Schema ({
     meta: {
         type: [ {thumbsup: Number} ]
     }
-}, { validateBeforeSave: true });
+}, { validateBeforeSave: true }); // Forcing validation before a document can be created
 
 
 // Creating a Model from the schema
