@@ -16,36 +16,34 @@
  * 
  * @author Kaleb Moreno
  * @version 11/21/2020
- * @description - This file holds all of the backend code for a simple API that sends JSON data 
- * to any site that sends in a GET request. The purpose is to have it 
+ * @description - This file holds all of router Express code that controls how the application responds to requests. 
  */
 
 
 // pulling in the router from express
 const routes = require('express').Router(),
 
-  // For the eventual use of other APIs to complete the project
+  // For the eventual use of other APIs to complete the project & AJAX
   axios = require('axios'),
 
   // Body parser
   bodyParser = require('body-parser'),
 
+  // Schemas
   postSchema = require('../models/schemas/Post'),
-
   userSchema = require('../models/schemas/User'),
-
   commentSchema = require('../models/schemas/Comment'),  
 
+  // Errors
   asyncWrapper = require('../utils/errors/asyncWrapper'),
-
   AppError = require('../utils/errors/AppError');
 
 
 // SHOW all posts & The home page
 routes.get('/home', asyncWrapper(async (req, res) => {
 
-  // DONT FORGET { tags: 'general'} after testing
-  const returnedPosts = await postSchema.Post.find().sort({ publish_date: -1 });
+  // @TODO DONT FORGET { tags: 'general'} after testing
+  const returnedPosts = await postSchema.Post.find().sort({ publish_date: -1 }); // Order by publish date descending
   res.render('index', { posts: returnedPosts });
 
 }));
@@ -167,14 +165,7 @@ routes.post('/', async (req, res) => {
 
 });
 
-
-
-
-
-
-
-
-
+//TODO routes
 
 // The GET route for the slot room 
 routes.get('/slots', (req, res) => {
@@ -210,16 +201,16 @@ routes.post('/slotJP', (req, res) => {
 
 });
 
-// Error handlers!
+// Error handler middleware
 routes.all('*', (req, res) => {
   res.status(404).render('404');
 })
 
-
+// Error handler middleware
 routes.use((err, req, res, next) => {
   res.render('err', { err: err });
   // next(err);
 });
 
-
+// Exports
 module.exports = routes;
