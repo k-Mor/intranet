@@ -16,8 +16,7 @@
  * 
  * @author Kaleb Moreno
  * @version 11/22/2020
- * @description - This file holds all of the backend code for a simple API that sends JSON data 
- * to any site that sends in a GET request. The purpose is to have it 
+ * @description - This file holds all of the code for the user Mongoose Schema
  */
 
 
@@ -26,9 +25,7 @@
  mongoose = require('mongoose');
 
 
-/**
- * This is the schema that defines a user object in Mongo
- */
+ // This is the schema that defines a user object in Mongo
  const UserSchema = new Schema({
    username: {
      type: String,
@@ -38,6 +35,7 @@
      lowercase: true
    },
    
+   // TODO Hashing / Salting - This is purely for testing
    password: {
      type: String,
      required: true,
@@ -57,7 +55,7 @@
    },
    
    posts: {
-     type: Schema.Types.ObjectId,
+     type: Schema.Types.ObjectId, // Reference to the Post Object IDs
      ref: 'Post',
    }
  })
@@ -65,4 +63,5 @@
  // Creating the user object from the Schema
 const User = mongoose.model('User', UserSchema);
 
+// Exports
 module.exports.User = User;
