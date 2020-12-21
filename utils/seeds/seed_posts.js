@@ -1,11 +1,15 @@
-const dbFile = require('../js/db'),
-    postSchema = require('../models/schemas/Post'),
-    mongoose = require('mongoose');
+/*
+ * This file holds all of the code for seeding the Posts collection in the DB
+ */
+const dbFile = require('../js/db'), // Getting an instance of the DB
+    postSchema = require('../models/schemas/Post'), // Grabbing the schema
+    mongoose = require('mongoose'); 
 
 
 // Connect to the DB;
 dbFile.connect();
 
+// Array of random posts
 let posts = [
 
     {
@@ -84,7 +88,7 @@ let posts = [
         publish_date: new Date(),
         date_updated: new Date(),
         author: "bobby jones",
-        tags: ['general', 'poop', 'funny', 'silly', 'David'],
+        tags: ['general', 'cats', 'funny', 'silly', 'David'],
         meta: [{ thumbsup: 10 }]
 
     }
